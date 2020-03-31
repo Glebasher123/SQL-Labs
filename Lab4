@@ -1,0 +1,67 @@
+CREATE DATABASE Lab444
+use Lab444;
+
+
+CREATE TABLE Сategory
+(
+[IDCategory] int not null identity PRIMARY KEY,
+NameCategory varchar(50),
+)
+
+CREATE TABLE Sklad
+(
+IDSklad int not null identity PRIMARY KEY,
+NameSklad varchar(50),
+)
+
+CREATE TABLE Product
+(
+IDproduct int not null identity PRIMARY KEY,
+NameProduct varchar(50),
+WTProduct bigint,
+Price bigint,
+IDCategory int not null default 0,
+IDSklad int not null default 0,
+FOREIGN KEY (IDSklad) REFERENCES Sklad(IDSklad),
+FOREIGN KEY (IDCategory) REFERENCES Сategory(IDCategory)
+
+)
+
+
+CREATE TABLE Postavchik
+(IDPost int not null identity PRIMARY KEY,
+NamePost varchar(50),
+Nubmer varchar(15),
+)
+
+CREATE TABLE Postavka
+(
+IDPostavka int not null identity PRIMARY KEY,
+QuantityPost varchar(50),
+PostData datetime,
+IDPost int not null default 0,
+IDproduct int not null default 0,
+FOREIGN KEY (IDPost) REFERENCES Postavchik(IDPost),
+FOREIGN KEY (IDproduct) REFERENCES Product(IDproduct)
+
+)
+
+CREATE TABLE Buyer
+(
+IDbuyer int not null identity PRIMARY KEY,
+bFIO varchar(50)
+)
+
+CREATE TABLE Sales
+(
+IDSale int not null identity PRIMARY KEY,
+DateSale datetime,
+QuantitySale varchar(50),
+CostSale varchar(10),
+IDproduct int not null default 0,
+IDbuyer int not null default 0,
+
+FOREIGN KEY (IDproduct) REFERENCES Product(IDproduct),
+FOREIGN KEY (IDbuyer) REFERENCES Buyer(IDbuyer)
+
+)
