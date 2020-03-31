@@ -4,14 +4,14 @@ use Lab444;
 
 CREATE TABLE Сategory
 (
-[IDCategory] int not null identity PRIMARY KEY,
-NameCategory varchar(50),
+IDCategory int not null identity PRIMARY KEY,
+NameCategory varchar(50)
 )
 
 CREATE TABLE Sklad
 (
 IDSklad int not null identity PRIMARY KEY,
-NameSklad varchar(50),
+NameSklad varchar(50)
 )
 
 CREATE TABLE Product
@@ -24,14 +24,13 @@ IDCategory int not null default 0,
 IDSklad int not null default 0,
 FOREIGN KEY (IDSklad) REFERENCES Sklad(IDSklad),
 FOREIGN KEY (IDCategory) REFERENCES Сategory(IDCategory)
-
 )
 
 
 CREATE TABLE Postavchik
 (IDPost int not null identity PRIMARY KEY,
 NamePost varchar(50),
-Nubmer varchar(15),
+Nubmer varchar(15)
 )
 
 CREATE TABLE Postavka
@@ -43,7 +42,6 @@ IDPost int not null default 0,
 IDproduct int not null default 0,
 FOREIGN KEY (IDPost) REFERENCES Postavchik(IDPost),
 FOREIGN KEY (IDproduct) REFERENCES Product(IDproduct)
-
 )
 
 CREATE TABLE Buyer
@@ -63,5 +61,4 @@ IDbuyer int not null default 0,
 
 FOREIGN KEY (IDproduct) REFERENCES Product(IDproduct),
 FOREIGN KEY (IDbuyer) REFERENCES Buyer(IDbuyer)
-
 )
