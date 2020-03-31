@@ -1,64 +1,70 @@
-CREATE DATABASE Lab444
-use Lab444;
+CREATE DATABASE Lab4
+use Lab4;
 
 
-CREATE TABLE Сategory
+CREATE TABLE Категория
 (
-IDCategory int not null identity PRIMARY KEY,
-NameCategory varchar(50)
+[ID Категории] int not null identity PRIMARY KEY,
+[Название категории] varchar(50) not null default 'Не указано'
 )
 
-CREATE TABLE Sklad
+CREATE TABLE Склад
 (
-IDSklad int not null identity PRIMARY KEY,
-NameSklad varchar(50)
+[ID Склада] int not null identity PRIMARY KEY,
+[Название склада] varchar(50) not null default 'Не указано'
 )
 
-CREATE TABLE Product
+CREATE TABLE Товар
 (
-IDproduct int not null identity PRIMARY KEY,
-NameProduct varchar(50),
-WTProduct bigint,
-Price bigint,
-IDCategory int not null default 0,
-IDSklad int not null default 0,
-FOREIGN KEY (IDSklad) REFERENCES Sklad(IDSklad),
-FOREIGN KEY (IDCategory) REFERENCES Сategory(IDCategory)
+[№ товара] int not null identity PRIMARY KEY,
+[Название товара] varchar(50) not null default 'Не указано',
+[Вес товара] int not null default 0,
+[Цена] int not null default 0,
+
+[ID Категории] int not null default 0,
+[ID Склада] int not null default 0,
+FOREIGN KEY ([ID Склада]) REFERENCES Склад([ID Склада]),
+FOREIGN KEY ([ID Категории]) REFERENCES Категория([ID Категории])
 )
 
 
-CREATE TABLE Postavchik
-(IDPost int not null identity PRIMARY KEY,
-NamePost varchar(50),
-Nubmer varchar(15)
+CREATE TABLE Поставщик
+(
+[ID Поставщика] int not null identity PRIMARY KEY,
+[Наименование] varchar(50) not null default 'Не указано',
+[Телефон] varchar(15) not null default 'Не указано'
 )
 
-CREATE TABLE Postavka
+CREATE TABLE Поставка
 (
-IDPostavka int not null identity PRIMARY KEY,
-QuantityPost varchar(50),
-PostData datetime,
-IDPost int not null default 0,
-IDproduct int not null default 0,
-FOREIGN KEY (IDPost) REFERENCES Postavchik(IDPost),
-FOREIGN KEY (IDproduct) REFERENCES Product(IDproduct)
+[ID Поставки] int not null identity PRIMARY KEY,
+[Количество] varchar(50) not null default 0,
+[Дата Поставки] date not null default '2020-01-01',
+
+[ID Поставщика] int not null default 0,
+[№ товара] int not null default 0,
+FOREIGN KEY ([ID Поставщика]) REFERENCES Поставщик([ID Поставщика]),
+FOREIGN KEY ([№ товара]) REFERENCES Товар([№ товара])
+
 )
 
-CREATE TABLE Buyer
+CREATE TABLE Покупатель
 (
-IDbuyer int not null identity PRIMARY KEY,
-bFIO varchar(50)
+[№ Покупателя] int not null identity PRIMARY KEY,
+[ФИО] varchar(50) not null default 'Не указано'
 )
 
-CREATE TABLE Sales
+CREATE TABLE Продажи
 (
-IDSale int not null identity PRIMARY KEY,
-DateSale datetime,
-QuantitySale varchar(50),
-CostSale varchar(10),
-IDproduct int not null default 0,
-IDbuyer int not null default 0,
+[ID Продажи] int not null identity PRIMARY KEY,
+[Дата Продажи] date not null default '2020-01-01',
+[Количество] varchar(50) not null default 0,
+[Цена продажи] varchar(10) not null default 0,
 
-FOREIGN KEY (IDproduct) REFERENCES Product(IDproduct),
-FOREIGN KEY (IDbuyer) REFERENCES Buyer(IDbuyer)
+[№ товара] int not null default 0,
+[№ Покупателя] int not null default 0,
+
+FOREIGN KEY ([№ товара]) REFERENCES Товар([№ товара]),
+FOREIGN KEY ([№ Покупателя]) REFERENCES Покупатель([№ Покупателя])
+
 )
