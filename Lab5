@@ -1,5 +1,5 @@
-CREATE DATABASE Lab8
-use Lab8;
+CREATE DATABASE Lab5
+use Lab5;
 
 CREATE TABLE Категория
 (
