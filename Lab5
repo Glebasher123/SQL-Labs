@@ -1,0 +1,114 @@
+CREATE DATABASE Lab4
+use Lab4;
+
+CREATE TABLE Категория
+(
+[ID Категории] int not null identity PRIMARY KEY,
+[Название категории] varchar(50) not null default 'Не указано'
+)
+
+alter table Категория add constraint CS_Check check ([Название категории] = 'Зефир' or [Название категории] = 'Конфеты' or [Название категории] = 'Шоколад')
+
+insert into Категория ([Название категории]) values ('Зефир')
+insert into Категория ([Название категории]) values ('Конфеты')
+insert into Категория ([Название категории]) values ('Шоколад')
+insert into Категория ([Название категории]) values ('Конфеты')
+insert into Категория ([Название категории]) values ('Зефир')
+
+update Категория set [Название категории]='Конфеты' where [Название категории]='Шоколад'
+update Категория set [Название категории]='Зефир' where [Название категории]='Конфеты'
+
+delete from Категория where [Название категории]='Конфеты'
+
+
+CREATE TABLE Склад
+(
+[ID Склада] int not null identity PRIMARY KEY,
+[Название склада] varchar(50) not null default 'Не указано'
+)
+
+alter table Склад add constraint CS_Check1 check ([Название склада] = 'Коммунарка' or [Название склада] = 'Красный пищевик' or [Название склада] = 'Roshen')
+
+insert into Склад ([Название склада]) values ('Roshen')
+insert into Склад ([Название склада]) values ('Коммунарка')
+insert into Склад ([Название склада]) values ('Roshen')
+insert into Склад ([Название склада]) values ('Коммунарка')
+insert into Склад ([Название склада]) values ('Красный пищевик')
+
+update Склад set [Название склада]='Roshen' where [Название склада]='Красный пищевик'
+update Склад set [Название склада]='Красный пищевик' where [Название склада]='Roshen'
+
+delete from Склад where [Название склада]='Коммунарка'
+
+
+CREATE TABLE Товар
+(
+[№ товара] int not null identity PRIMARY KEY,
+[Название товара] varchar(50) not null default 'Не указано',
+[Вес товара] int not null default 0,
+[Цена] int not null default 0,
+
+[ID Категории] int not null default 0,
+[ID Склада] int not null default 0,
+FOREIGN KEY ([ID Склада]) REFERENCES Склад([ID Склада]),
+FOREIGN KEY ([ID Категории]) REFERENCES Категория([ID Категории])
+)
+
+insert into Товар ([Название товара], [Вес товара], [Цена], [ID Категории], [ID Склада]) values ('Зефир в шоколаде', 200, 15, 1, 1)
+insert into Товар ([Название товара], [Вес товара], [Цена], [ID Категории], [ID Склада]) values ('Зефир лимонный', 500, 7, 2, 1)
+insert into Товар ([Название товара], [Вес товара], [Цена], [ID Категории], [ID Склада]) values ('Зефир розовый', 400, 11, 3, 3)
+insert into Товар ([Название товара], [Вес товара], [Цена], [ID Категории], [ID Склада]) values ('Зефир белый', 700, 5, 4, 3)
+insert into Товар ([Название товара], [Вес товара], [Цена], [ID Категории], [ID Склада]) values ('Зефир лимонный', 1000, 14, 2, 1)
+
+
+update Товар set [Вес товара]='100' where [Вес товара]='400'
+update Товар set [Цена]='22' where [Цена]='5'
+
+delete from Товар where [Вес товара]='200'
+delete from Товар where [Цена]='11'
+
+
+CREATE TABLE Поставщик
+(
+[ID Поставщика] int not null identity PRIMARY KEY,
+[Наименование] varchar(50) not null default 'Не указано',
+[Телефон] varchar(15) not null default 'Не указано'
+)
+
+alter table Склад add constraint CS_Check2 check ([Название склада] = 'Коммунарка' or [Название склада] = 'Красный пищевик' or [Название склада] = 'Roshen')
+
+insert into Склад ([Название склада]) values ('Roshen')
+
+CREATE TABLE Поставка
+(
+[ID Поставки] int not null identity PRIMARY KEY,
+[Количество] varchar(50) not null default 0,
+[Дата Поставки] date not null default '2020-01-01',
+
+[ID Поставщика] int not null default 0,
+[№ товара] int not null default 0,
+FOREIGN KEY ([ID Поставщика]) REFERENCES Поставщик([ID Поставщика]),
+FOREIGN KEY ([№ товара]) REFERENCES Товар([№ товара])
+
+)
+
+CREATE TABLE Покупатель
+(
+[№ Покупателя] int not null identity PRIMARY KEY,
+[ФИО] varchar(50) not null default 'Не указано'
+)
+
+CREATE TABLE Продажи
+(
+[ID Продажи] int not null identity PRIMARY KEY,
+[Дата Продажи] date not null default '2020-01-01',
+[Количество] varchar(50) not null default 0,
+[Цена продажи] varchar(10) not null default 0,
+
+[№ товара] int not null default 0,
+[№ Покупателя] int not null default 0,
+
+FOREIGN KEY ([№ товара]) REFERENCES Товар([№ товара]),
+FOREIGN KEY ([№ Покупателя]) REFERENCES Покупатель([№ Покупателя])
+
+)
