@@ -1,13 +1,13 @@
 use Lab4
 
-DROP INDEX IndexNam ON ТипПредмета
-CREATE INDEX IndexNam ON ТипПредмета(Название)
+DROP INDEX IndexNam ON Товар
+CREATE INDEX IndexNam ON Товар([Вес товара])
 
-DROP INDEX IndexNam2 ON Ученик
-CREATE INDEX IndexNam2 ON Ученик(ФИО, Возраст)
+DROP INDEX IndexNam2 ON Поставщик
+CREATE INDEX IndexNam2 ON Поставщик(Наименование, Телефон)
 
-DROP INDEX IndexNam3 ON Город
-CREATE CLUSTERED INDEX IndexNam3 ON Город(Название)
+DROP INDEX IndexNam3 ON Поставщик
+CREATE CLUSTERED INDEX IndexNam3 ON Поставщик(Наименование, Телефон)
 
 --Полное
 
