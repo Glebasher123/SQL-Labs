@@ -1,5 +1,5 @@
-CREATE DATABASE Lab9
-use Lab9;
+CREATE DATABASE Lab4
+use Lab4;
 
 CREATE TABLE Категория
 (
@@ -86,7 +86,7 @@ insert into Поставщик ([Наименование], [Телефон]) va
 CREATE TABLE Поставка
 (
 [ID Поставки] int not null identity PRIMARY KEY,
-[Количество] varchar(50) not null default 0,
+[Количество] int not null default 0,
 [Дата Поставки] date not null default '2020-01-01',
 
 [ID Поставщика] int not null default 0,
@@ -96,11 +96,11 @@ FOREIGN KEY ([№ товара]) REFERENCES Товар([№ товара]),
 
 )
 
-insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (250, '2020-01-02', 1, 10)
-insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (400, '2020-02-04', 2, 8)
-insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (700, '2020-02-12', 3, 6)
-insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (1400, '2020-03-25', 4, 4)
-insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (1250, '2020-04-02', 5, 2)
+insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (250, '2020-01-02', 1, 2)
+insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (400, '2020-02-04', 1, 2)
+insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (700, '2020-02-12', 1, 5)
+insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (1400, '2020-03-25', 1, 5)
+insert into Поставка ([Количество], [Дата Поставки], [ID Поставщика], [№ товара]) values (1250, '2020-04-02', 1, 4)
 
 
 
@@ -119,14 +119,14 @@ insert into Покупатель ([ФИО]) values ('Веракса Л.И.')
 insert into Покупатель ([ФИО]) values ('Иванов И.И.')
 insert into Покупатель ([ФИО]) values ('Борисов А.В.')
 
-
+drop table Продажи
 
 CREATE TABLE Продажи
 (
 [ID Продажи] int not null identity PRIMARY KEY,
 [Дата Продажи] date not null default '2020-01-01',
-[Количество] varchar(50) not null default 0,
-[Цена продажи] varchar(10) not null default 0,
+[Количество] int not null default 0,
+[Цена продажи] int not null default 0,
 
 [№ товара] int not null default 0,
 [№ Покупателя] int not null default 0,
