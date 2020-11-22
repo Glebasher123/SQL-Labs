@@ -1,5 +1,5 @@
-create database NKA
-use NKA
+create database NKA1
+use NKA1
 
 CREATE TABLE [Данные клиента]
 (
@@ -23,6 +23,8 @@ CREATE TABLE [Информация о участке]
 FOREIGN KEY ([ID клиента]) REFERENCES [Данные клиента]([ID клиента])
 )
 
+
+
 CREATE TABLE [Информация о строительстве]
 (
 [Номер строительства] int not null identity PRIMARY KEY,
@@ -34,10 +36,10 @@ CREATE TABLE [Информация о строительстве]
 [Стоимость отделки] int not null default 0,
 [Объект сдан или нет] varchar(50) not null default 'Не указано',
 
+
 [Кадастровый номер участка] int not null default 0,
-[ID клиента] int not null default 0,
-FOREIGN KEY ([ID клиента]) REFERENCES [Данные клиента]([ID клиента]),
-FOREIGN KEY ([Кадастровый номер участка]) REFERENCES [Информация о участке]([Кадастровый номер участка])
+
+FOREIGN KEY ([Кадастровый номер участка]) REFERENCES  [Информация о участке]([Кадастровый номер участка])
 )
 
 CREATE TABLE [Таблица оценки участка]
@@ -50,9 +52,11 @@ CREATE TABLE [Таблица оценки участка]
 
 [Кадастровый номер участка] int not null default 0,
 [Номер строительства] int not null default 0,
+
 FOREIGN KEY ([Кадастровый номер участка]) REFERENCES [Информация о участке]([Кадастровый номер участка]),
 FOREIGN KEY ([Номер строительства]) REFERENCES [Информация о строительстве]([Номер строительства])
 )
+
 
 CREATE TABLE [Юридическое обеспечение гос.регистрации]
 (
@@ -64,5 +68,5 @@ CREATE TABLE [Юридическое обеспечение гос.регистрации]
 [Кадастровый номер] int not null default 0,
 [Кадастровый номер участка] int not null default 0,
 FOREIGN KEY ([Кадастровый номер]) REFERENCES [Таблица оценки участка]([Кадастровый номер]),
-FOREIGN KEY ([Кадастровый номер участка]) REFERENCES [Информация о строительстве]([Кадастровый номер участка])
+FOREIGN KEY ([Кадастровый номер участка]) REFERENCES [Информация о участке]([Кадастровый номер участка])
 )
