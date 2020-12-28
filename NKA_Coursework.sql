@@ -3,7 +3,7 @@ use NKA1
 
 CREATE TABLE [Данные клиента]
 (
-[ID клиента] int not null identity PRIMARY KEY,
+[ID клиента] int not null PRIMARY KEY,
 [Фамилия] varchar(50) not null default 'Не указано',
 [Имя] varchar(50) not null default 'Не указано',
 [Отчество] varchar(50) not null default 'Не указано',
@@ -14,10 +14,10 @@ CREATE TABLE [Данные клиента]
 CREATE TABLE [Информация о участке]
 (
 [Кадастровый номер участка] int not null identity PRIMARY KEY,
-[Адрес участка] varchar(50) not null default 'Не указано',
-[Кадастровая стоимость, руб] int not null default 0,
+[Стоимость м2, руб] int not null default 0,
 [Уточненная площадь]  int not null default 0,
 [Состояние объекта] varchar(50) not null default 'Не указано',
+[Кадастровая стоимость, руб] int not null default 0,
 
 [ID клиента] int not null default 0,
 FOREIGN KEY ([ID клиента]) REFERENCES [Данные клиента]([ID клиента])
@@ -28,12 +28,8 @@ FOREIGN KEY ([ID клиента]) REFERENCES [Данные клиента]([ID клиента])
 CREATE TABLE [Информация о строительстве]
 (
 [Номер строительства] int not null identity PRIMARY KEY,
-[Поставщик бетона] varchar(50) not null default 'Не указано',
-[Поставщик кирпича] varchar(50) not null default 'Не указано',
 [Поставщики отделочных материалов] varchar(50) not null default 'Не указано',
-[Стоимость котлована] int not null default 0,
 [Стоимость фундамента] int not null default 0,
-[Стоимость отделки] int not null default 0,
 [Объект сдан или нет] varchar(50) not null default 'Не указано',
 
 
