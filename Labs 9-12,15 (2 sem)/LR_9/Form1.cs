@@ -37,5 +37,11 @@ namespace LR_9
             Form form4 = new Form4();
             form4.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LINQ lINQ = new LINQ();
+            lINQ.ShowDialog();
+        }
     }
 }

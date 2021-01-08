@@ -70,3 +70,4 @@ C:\Users\vysta\source\repos\LR_9\LR_9\bin\Debug\zh-CHS\Microsoft.ReportViewer.Wi
 C:\Users\vysta\source\repos\LR_9\LR_9\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\vysta\source\repos\LR_9\LR_9\obj\Debug\LR_9.csproj.CopyComplete
 C:\Users\vysta\source\repos\LR_9\LR_9\obj\Debug\LR_9.Form4.resources
+C:\Users\vysta\source\repos\LR_9\LR_9\obj\Debug\LR_9.LINQ.resources
