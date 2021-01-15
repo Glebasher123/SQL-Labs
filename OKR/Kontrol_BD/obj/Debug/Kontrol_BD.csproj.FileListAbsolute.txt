@@ -1,0 +1,17 @@
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\bin\Debug\Kontrol_BD.exe.config
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\bin\Debug\Kontrol_BD.exe
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\bin\Debug\Kontrol_BD.pdb
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.csprojAssemblyReference.cache
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Form1.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Properties.Resources.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Task2.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.csproj.GenerateResource.cache
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.csproj.CoreCompileInputs.cache
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.exe
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.pdb
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Task3.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Task4.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Task5.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Task5_a.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Task5_b.resources
+C:\Users\vysta\source\repos\Kontrol_BD\Kontrol_BD\obj\Debug\Kontrol_BD.Task5_c.resources
